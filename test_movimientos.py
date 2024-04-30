@@ -23,5 +23,7 @@ def test_ingreso_cantidad_typeError():
     movimiento = Ingreso("Loteria del niño, premio", date(2024, 1, 5), 1000) 
     movimiento = Ingreso("Loteria del niño, premio", date(2024, 1, 5), 1000.1) 
 
-
+# test que la cantidad no sea cero
+# test que como minimo el concepto tieneque tener una longitud superior a 5 caracteres. El concepto debe tener una longitud mayor de 5
+# test que la fecha no puede ser posterior a fecha de creación del ingreso. menor o igual a hoy, no se admitenn movimientos futuros
 
