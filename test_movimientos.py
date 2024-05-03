@@ -1,5 +1,5 @@
 from datetime import date
-from kakebo import Ingreso
+from kakebo import Ingreso, CategoriaGastos, Gasto
 import pytest
 
 def test_instanciar_ingreso():
@@ -35,7 +35,13 @@ def test_fecha_posterior():
     with pytest.raises(TypeError):
         movimiento = Ingreso("Lotería del niño, premio", date(2225, 5, 2), 1000)
 
-# test que la cantidad no sea cero
-# test que como minimo el concepto tieneque tener una longitud superior a 5 caracteres. El concepto debe tener una longitud mayor de 5
-# test que la fecha no puede ser posterior a fecha de creación del ingreso. menor o igual a hoy, no se admitenn movimientos futuros
+def test_crear_gasto():
+    movimiento = Gasto("Factura del agua", date(2024, 5, 1), 70, CategoriaGastos.NECESIDAD)
+    assert movimiento.concepto == "Factura del agua"
+    assert movimiento.fecha == date(2024, 5, 1)
+    assert movimiento.cantidad == 70
+    assert movimiento.categoria == CategoriaGastos.NECESIDAD
 
+def test_gasto_categoria_tipo_correcto():
+    with pytest.raises(TypeError):
+        movimiento = Gasto("Factura del agua", date(2024, 5, 1), 70, "Necesidad")
