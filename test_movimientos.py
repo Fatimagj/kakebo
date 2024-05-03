@@ -23,6 +23,18 @@ def test_ingreso_cantidad_typeError():
     movimiento = Ingreso("Loteria del niño, premio", date(2024, 1, 5), 1000) 
     movimiento = Ingreso("Loteria del niño, premio", date(2024, 1, 5), 1000.1) 
 
+def test_cantidad_no_0():
+    with pytest.raises(TypeError):
+        movimiento = Ingreso("Loteria del niño, premio", date(2024, 1, 5), 0)
+
+def test_longitud_5caracteres():
+    with pytest.raises(TypeError):
+        movimiento = Ingreso("Lote", date(2024, 1, 5), 1000 )
+    
+def test_fecha_posterior():
+    with pytest.raises(TypeError):
+        movimiento = Ingreso("Lotería del niño, premio", date(2225, 5, 2), 1000)
+
 # test que la cantidad no sea cero
 # test que como minimo el concepto tieneque tener una longitud superior a 5 caracteres. El concepto debe tener una longitud mayor de 5
 # test que la fecha no puede ser posterior a fecha de creación del ingreso. menor o igual a hoy, no se admitenn movimientos futuros
