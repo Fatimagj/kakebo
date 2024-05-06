@@ -35,8 +35,7 @@ def imprimirMovimientos(): #muestra en pantalla todos los gasstos e ingresos int
     print("Fin de movimientos registrados")
 
 def instanciarMovimiento(tipo, concepto, fecha, cantidad, categoria_elegida = ""): #le pasa al molde(clase) todos los datos para instanciar un movimiento (crear una instancia de un movimiento).
-        fecha = date.fromisoformat(fecha) #aqui cambi el formato de fecha, de str a date, ya que en el input de la fecha devuelve una cadena 
-        """******"""
+       
         if tipo == "i":
             movimiento = Ingreso(concepto, fecha, cantidad)
         if tipo == "g":
@@ -67,6 +66,7 @@ while continuar:
         while not validarFecha(fecha): #comprobamos que el formato de la fecha sea el correcto. ¡importante el formato, no el tipo¡
             print("Introduzca una fecha valida (YYYY-MM-DD) y no futura")
             fecha = input("Fecha (YYYY-MM-DD): ")
+        fecha = date.fromisoformat(fecha) #aqui cambi el formato de fecha, de str a date, ya que en el input de la fecha devuelve una cadena 
 
         while True: #Iniciamos este bucle así ya que al iniciarlo asumimos que siempre es True, continuará ejecutandose sin parar hasta que cuando pase por el try y esto sea verdadero (la cantidad sea un float) hará el break y se parará.
             try: 
@@ -92,6 +92,7 @@ while continuar:
         while not validarFecha(fecha):
             print("Introduzca una fecha valida (YYYY-MM-DD) y no futura")
             fecha = input("Fecha (YYYY-MM-DD): ")
+        fecha = date.fromisoformat(fecha) #aqui cambi el formato de fecha, de str a date, ya que en el input de la fecha devuelve una cadena 
         while True:
             try: 
                 cantidad = float(input("Intruduce la cantidad en números: "))

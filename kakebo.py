@@ -17,7 +17,7 @@ class Ingreso:
         if not (isinstance(self.cantidad, float) or isinstance(self.cantidad, int)):
             raise TypeError("La cantidad tiene que ser numérica")
     def validar_inputs(self): 
-        if not len(self.concepto) > 5:
+        if not len(self.concepto) >= 5:
             raise TypeError("Ingresa un nombre que sea mayor de 5 caracteres")
         if self.cantidad == 0:
             raise TypeError("Ingresa un número que sea mayor de 0")
