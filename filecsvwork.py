@@ -1,4 +1,7 @@
 import csv
+from kakebo import Ingreso
+from datetime import date
+
 #reader normal
 f = open("./data/movimientos.dat", "r")
 reader = csv.reader(f, delimiter=",", quotechar='"')
